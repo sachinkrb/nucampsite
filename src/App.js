@@ -8,9 +8,9 @@ class App extends Component {
         return (
             <div className="App">
                 <Navbar dark color="primary">
-                <div className="container">
-                    <NavbarBrand href="/">NuCamp</NavbarBrand>
-                </div>
+                    <div className="container">
+                        <NavbarBrand href="/">NuCamp</NavbarBrand>
+                    </div>
                 </Navbar>
                 <Directory />
             </div>
