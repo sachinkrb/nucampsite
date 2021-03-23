@@ -166,7 +166,6 @@ class CommentForm extends Component {
                                 </Button>
             </React.Fragment>
 
-
         );
 
     }
