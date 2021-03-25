@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
-import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import { FadeTransform, Fade, Stagger, Transform } from 'react-animation-components';
 
 const required = val => val && val.length;
 const maxLength = len => val => !val || (val.length <= len);
@@ -23,9 +23,12 @@ function RenderCampsite({ campsite }) {
                 }}>
                 <Card>
                     <CardImg top src={baseUrl + campsite.image} alt={campsite.name} />
-                    <CardBody>
-                        <CardText>{campsite.description}</CardText>
-                    </CardBody>
+                    <Transform enterTransform="rotate(360deg)" in>
+                        <CardBody>
+                            <CardText>{campsite.description}</CardText>
+                        </CardBody>
+                    </Transform>
+
                 </Card>
             </FadeTransform>
         </div>
@@ -37,7 +40,7 @@ function RenderComments({ comments, postComment, campsiteId }) {
         return (
             <div className="col-md-5 m-1">
                 <h4>Comments</h4>
-                <Stagger in>
+                <Fade in>
                     {
                         comments.map(comment => {
                             return (
@@ -52,7 +55,7 @@ function RenderComments({ comments, postComment, campsiteId }) {
                             );
                         })
                     }
-                </Stagger>
+                </Fade>
                 <CommentForm campsiteId={campsiteId} postComment={postComment} />
             </div>
         );
@@ -193,9 +196,11 @@ class CommentForm extends Component {
                         </div>
                     </ModalBody>
                 </Modal>
-                <Button outline onClick={this.toggleModal}>
-                    <i className="fa fa-pencil fa-lg" /> Submit Comment
+                <Transform enterTransform="rotate(360deg)" in>
+                    <Button outline onClick={this.toggleModal}>
+                        <i className="fa fa-pencil fa-lg" /> Submit Comment
                                 </Button>
+                </Transform>
             </React.Fragment>
 
         );
