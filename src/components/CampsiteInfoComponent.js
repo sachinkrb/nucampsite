@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import {
-    Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem,
-    Label, Input, Modal, ModalHeader, ModalBody, Form, FormGroup, Button, Col, Row
+    Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem,
+    Label, Modal, ModalHeader, ModalBody, Button, Row
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
-import { FadeTransform, Fade, Stagger, Transform } from 'react-animation-components';
+import { FadeTransform, Fade, Transform } from 'react-animation-components';
 
 const required = val => val && val.length;
 const maxLength = len => val => !val || (val.length <= len);
